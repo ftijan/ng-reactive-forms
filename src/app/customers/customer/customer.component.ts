@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 import { Customer } from '../customer';
 
@@ -9,29 +9,26 @@ import { Customer } from '../customer';
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
-  public customerForm: FormGroup = this.fb.group({
-    firstName: '',
-    lastName: '',
-    email: '',
-    sendCatalog: true
-  });
+  public customerForm: FormGroup = new FormGroup({});
   customer = new Customer();
 
-  constructor(private fb: FormBuilder) { }
+  constructor() { }
 
   ngOnInit() {
-    // this.customerForm = this.fb.group({
-    //   firstName: '',
-    //   lastName: '',
-    //   email: '',
-    //   sendCatalog: true
-    // });
+    this.customerForm = new FormGroup({
+      firstName: new FormControl(),
+      lastName: new FormControl(),
+      email: new FormControl(),
+      sendCatalog: new FormControl(true)
+    })
   }
 
   populateTestData(): void {
+    // use setValue when setting all values, patchValue when setting a subset
     this.customerForm.patchValue({
       firstName: 'Jack',
       lastName: 'Harkness',
+      email: 'jack@torchwood.com',
       sendCatalog: false
     });
   }
