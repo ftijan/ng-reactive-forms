@@ -15,9 +15,7 @@
           <input class="form-control"
                  id="firstNameId"
                  type="text"
-                 placeholder="First Name (required)"
-                 required
-                 minlength="3"
+                 placeholder="First Name (required)"                 
                  formControlName="firstName"
                  [ngClass]="{'is-invalid': (customerForm.get('firstName')?.touched || customerForm.get('firstName')?.dirty) && !customerForm.get('firstName')?.valid }" />
           <span class="invalid-feedback">
@@ -38,9 +36,7 @@
           <input class="form-control"
                  id="lastNameId"
                  type="text"
-                 placeholder="Last Name (required)"
-                 required
-                 maxlength="50"
+                 placeholder="Last Name (required)"                 
                  formControlName="lastName"
                  [ngClass]="{'is-invalid': (customerForm.get('lastName')?.touched || customerForm.get('lastName')?.dirty) && !customerForm.get('lastName')?.valid }" />
           <span class="invalid-feedback">
@@ -61,9 +57,7 @@
           <input class="form-control"
                  id="emailId"
                  type="email"
-                 placeholder="Email (required)"
-                 required
-                 email
+                 placeholder="Email (required)"                 
                  formControlName="email"
                  [ngClass]="{'is-invalid': (customerForm.get('email')?.touched || customerForm.get('email')?.dirty) && !customerForm.get('email')?.valid }" />
           <span class="invalid-feedback">
