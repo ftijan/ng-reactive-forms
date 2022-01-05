@@ -45,7 +45,7 @@ export class CustomerComponent implements OnInit {
       emailGroup: this.fb.group({
         email: ['', [Validators.required, Validators.email]],
         confirmEmail: ['', Validators.required],
-      }, { validator: emailMatcher}),
+      }, { validators: [emailMatcher]}),
       phone: '',
       notification: 'email',
       rating: [null, ratingRange(1, 5)],
